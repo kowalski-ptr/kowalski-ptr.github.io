@@ -1,10 +1,13 @@
 ---
-title: "Witaj w knowbase — jak działa ten notatnik"
-description: "Krótki przewodnik: jak dodawać notatki, jak działa pisanie z laptopa, telefonu i botów, i dlaczego wszystko to pliki Markdown."
-category: "Meta"
-tags: ["astro", "tinacms", "workflow"]
-date: 2026-06-18
-draft: false
+title: Witaj w knowbase — jak działa ten notatnik
+description: 'Krótki przewodnik: jak dodawać notatki, jak działa pisanie z laptopa, telefonu i botów, i dlaczego wszystko to pliki Markdown.'
+category: Meta
+tags:
+  - astro
+  - tinacms
+  - workflow
+date: 2026-06-18T00:00:00.000Z
+draft: true
 ---
 
 To pierwsza notatka w **knowbase**. Traktuj ją jako mini-instrukcję obsługi.
@@ -14,9 +17,9 @@ To pierwsza notatka w **knowbase**. Traktuj ją jako mini-instrukcję obsługi.
 Wszystko, co tu czytasz, to plik Markdown w `src/content/posts`. Żadnej bazy
 danych, żadnego lock-inu. Dzięki temu masz trzy niezależne sposoby pisania:
 
-- **Laptop** — `npm run dev`, panel pod `/admin`, edycja wizualna w TinaCMS.
-- **Telefon / tablet** — ten sam panel `/admin` na wdrożonej stronie (Tina Cloud).
-- **Boty na VPS** — zapisują plik `.md` i pushują przez git/API, bez Tiny.
+* **Laptop** — `npm run dev`, panel pod `/admin`, edycja wizualna w TinaCMS.
+* **Telefon / tablet** — ten sam panel `/admin` na wdrożonej stronie (Tina Cloud).
+* **Boty na VPS** — zapisują plik `.md` i pushują przez git/API, bez Tiny.
 
 ## Frontmatter, który rozumie strona
 
