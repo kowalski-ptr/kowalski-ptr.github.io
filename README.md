@@ -21,7 +21,7 @@ Sam Astro bez Tiny (gdyby był potrzebny):
 npm run dev:astro
 ```
 
-> Lokalny build robisz przez `npm run build` (sam Astro). Wariant z panelem
+> Lokalny build przez `npm run build` (sam Astro). Wariant z panelem
 > online (`build:cloud`) wymaga creds Tina Cloud i jest używany dopiero w CI.
 
 ## Build i podgląd produkcyjny
@@ -64,7 +64,7 @@ draft: false                # true = ukryta
 
 To jest **strona użytkownika** → repo musi nazywać się `kowalski-ptr.github.io`.
 
-1. **Utwórz repo** `kowalski-ptr.github.io` i wypchnij kod:
+1. **Utworzenie repo** `kowalski-ptr.github.io` i wypchięcie kodu:
    ```bash
    git init && git add . && git commit -m "init knowbase"
    git branch -M main
@@ -77,18 +77,18 @@ To jest **strona użytkownika** → repo musi nazywać się `kowalski-ptr.github
    - *Secrets* (dla panelu online) → `PUBLIC_TINA_CLIENT_ID`, `TINA_TOKEN`
 4. Push na `main` → workflow `.github/workflows/deploy.yml` zbuduje i opublikuje.
 
-> Zmień też `site` w `astro.config.mjs` (lub ustaw `SITE_URL`) na swój adres.
-> Strony produktowe komercyjne trzymaj w osobnych repo:
+> Nalezy tez zmienic `site` w `astro.config.mjs` (lub ustaw `SITE_URL`) na swój adres.
+> Strony produktowe komercyjne nalezy trzymac w osobnych repo:
 > `https://kowalski-ptr.github.io/<repo>/` — to repo ich nie blokuje.
 
 ---
 
 ## Tina Cloud (edycja z telefonu/tabletu)
 
-1. Wejdź na <https://app.tina.io>, zaloguj GitHubem, dodaj projekt z tego repo.
-2. Skopiuj **Client ID** i wygeneruj **Token** (read-only).
+1. Wejsc na <https://app.tina.io>, logowanie GitHubem, dodanie projektu z tego repo.
+2. Skopiowac **Client ID** i wygenerowac **Token** (read-only).
 3. Lokalnie: skopiuj `.env.example` → `.env` i wklej wartości.
-4. W repo: dodaj je jako *Secrets* (krok 3 wyżej).
+4. W repo: dodanie ich jako *Secrets* (krok 3 wyżej).
 5. Po deployu panel działa pod `https://kowalski-ptr.github.io/admin` z każdego
    urządzenia; zapis = commit do repo.
 
@@ -115,4 +115,4 @@ tina/config.ts        # schema + UI TinaCMS
 
 Jasny „parchment" (T3): tło `#b8b2a1`, karty `#dcd6c7`, tekst `#1b1811`,
 akcent terakota `#7d3d18`. Tokeny w `src/styles/global.css` (sekcja Semantic) —
-zmieniasz je tam w jednym miejscu.
+ich zmiana mozliwa tam w tym jednym miejscu.

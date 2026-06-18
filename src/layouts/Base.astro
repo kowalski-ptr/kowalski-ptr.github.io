@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = 'Engineering notebook — notatki o kodzie, infrastrukturze i AI.',
+  description = 'Engineering notebook — notes on code, infrastructure & AI.',
   path = '',
 } = Astro.props;
 
@@ -22,7 +22,7 @@ const canonical = new URL(path || Astro.url.pathname, Astro.site ?? Astro.url).t
 ---
 
 <!doctype html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

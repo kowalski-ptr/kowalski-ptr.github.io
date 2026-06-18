@@ -27,11 +27,11 @@ const topCats = [...catCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6)
   <section class="hero">
     <div class="wrap">
       <div class="eyebrow mono">Engineering notebook</div>
-      <h1>Notatki o kodzie, infrastrukturze i&nbsp;AI.</h1>
+      <h1>Notes on code, infrastructure&nbsp;&&nbsp;AI.</h1>
       <p class="lead">
-        Żywy zbiór tego, czego się uczę i co buduję — od wzorców w Rust i Go,
-        przez Kubernetes i sieci, po LLM-y, agentów i RAG. Pisane dla mnie
-        z&nbsp;przyszłości, otwarte dla&nbsp;Ciebie.
+        A living collection of what I'm learning and building — from Rust and Go
+        patterns, through Kubernetes and networking, to LLMs, agents and RAG.
+        Written for my future self, open to&nbsp;you.
       </p>
       {
         topTags.length > 0 && (
@@ -50,12 +50,12 @@ const topCats = [...catCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6)
   <div class="wrap">
     <div class="grid">
       <div>
-        <h2 class="section-h mono">Najnowsze notatki</h2>
+        <h2 class="section-h mono">Latest notes</h2>
         {
           posts.length === 0 ? (
             <p class="empty">
-              Brak notatek. Dodaj pierwszą przez panel <code>/admin</code> albo
-              plik w <code>src/content/posts</code>.
+              No notes yet. Add the first one via the <code>/admin</code> panel
+              or a file in <code>src/content/posts</code>.
             </p>
           ) : (
             posts.map((p) => (
@@ -79,7 +79,7 @@ const topCats = [...catCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6)
         {
           topCats.length > 0 && (
             <div class="box">
-              <h3>Tematy</h3>
+              <h3>Topics</h3>
               <ul>
                 {topCats.map(([c, n]) => (
                   <li>
@@ -92,12 +92,12 @@ const topCats = [...catCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6)
           )
         }
         <div class="box">
-          <h3>O tym miejscu</h3>
+          <h3>About this notebook</h3>
           <p class="aside-p">
-            Druga pamięć dev-a. Notatki commitowane jak kod — wersjonowane,
-            bez vendor lock-in.
+            A developer's second brain. Notes committed like code — versioned,
+            no vendor lock-in.
           </p>
-          <a class="aside-link mono" href="/about">więcej →</a>
+          <a class="aside-link mono" href="/about">more →</a>
         </div>
       </aside>
     </div>
