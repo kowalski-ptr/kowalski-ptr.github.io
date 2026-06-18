@@ -29,6 +29,12 @@ const canonical = new URL(path || Astro.url.pathname, Astro.site ?? Astro.url).t
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="knowbase — engineering notebook"
+      href="/rss.xml"
+    />
     <link rel="canonical" href={canonical} />
 
     <title>{fullTitle}</title>

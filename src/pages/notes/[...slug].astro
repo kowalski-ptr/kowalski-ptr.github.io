@@ -18,7 +18,7 @@ const minutes = readingTime(post.body, post.data.readingTime);
 ---
 
 <Base title={title} description={description} path={`/notes/${post.id}`}>
-  <article class="wrap article">
+  <article class="wrap article" data-pagefind-body>
     <a class="back mono" href="/">← all notes</a>
 
     <header class="head">

@@ -1,0 +1,283 @@
+---
+// Widget: publiczne repozytoria z GitHuba, ładowane po stronie klienta
+// (zawsze aktualne, bez przebudowy strony). Fallback przy błędzie/limicie API.
+interface Props {
+  user: string;
+  limit?: number;
+}
+const { user, limit = 8 } = Astro.props;
+---
+
+<div class="box repos" data-user={user} data-limit={limit}>
+  <h3>
+    Repositories
+    <a
+      class="all mono"
+      href={`https://github.com/${user}?tab=repositories`}
+      target="_blank"
+      rel="noopener noreferrer">all →</a
+    >
+  </h3>
+  <ul class="repo-list" aria-live="polite">
+    <li class="skel"></li>
+    <li class="skel"></li>
+    <li class="skel"></li>
+  </ul>
+</div>
+
+<script>
+  type Repo = {
+    name: string;
+    html_url: string;
+    description: string | null;
+    stargazers_count: number;
+    language: string | null;
+    fork: boolean;
+    archived: boolean;
+    updated_at: string;
+  };
+
+  const box = document.querySelector<HTMLElement>('.repos');
+  if (box) {
+    const user = box.dataset.user!;
+    const limit = Number(box.dataset.limit || 8);
+    const list = box.querySelector<HTMLUListElement>('.repo-list')!;
+    const cacheKey = `gh-repos:${user}`;
+
+    const fmtStars = (n: number) =>
+      n >= 1000 ? `${(n / 1000).toFixed(1)}k` : `${n}`;
+
+    function render(repos: Repo[]) {
+      const items = repos
+        .filter((r) => !r.archived)
+        .sort(
+          (a, b) =>
+            // najpierw repo własne (native), forki niżej
+            Number(a.fork) - Number(b.fork) ||
+            b.stargazers_count - a.stargazers_count ||
+            +new Date(b.updated_at) - +new Date(a.updated_at)
+        )
+        .slice(0, limit);
+
+      list.innerHTML = '';
+      if (items.length === 0) {
+        renderMessage('No public repositories yet.');
+        return;
+      }
+
+      for (const r of items) {
+        const li = document.createElement('li');
+        li.className = 'repo';
+
+        const a = document.createElement('a');
+        a.href = r.html_url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'repo-link';
+
+        const top = document.createElement('div');
+        top.className = 'repo-top';
+        const name = document.createElement('span');
+        name.className = 'repo-name';
+        name.textContent = r.name;
+        top.appendChild(name);
+        const badge = document.createElement('span');
+        badge.className = r.fork ? 'repo-badge fork mono' : 'repo-badge native mono';
+        badge.textContent = r.fork ? 'fork' : 'native';
+        top.appendChild(badge);
+        const spacer = document.createElement('span');
+        spacer.style.flex = '1';
+        top.appendChild(spacer);
+        if (r.stargazers_count > 0) {
+          const stars = document.createElement('span');
+          stars.className = 'repo-stars mono';
+          stars.textContent = `★ ${fmtStars(r.stargazers_count)}`;
+          top.appendChild(stars);
+        }
+        a.appendChild(top);
+
+        if (r.description) {
+          const desc = document.createElement('span');
+          desc.className = 'repo-desc';
+          desc.textContent = r.description;
+          a.appendChild(desc);
+        }
+        if (r.language) {
+          const lang = document.createElement('span');
+          lang.className = 'repo-lang mono';
+          lang.textContent = r.language;
+          a.appendChild(lang);
+        }
+
+        li.appendChild(a);
+        list.appendChild(li);
+      }
+    }
+
+    function renderMessage(msg: string) {
+      list.innerHTML = '';
+      const li = document.createElement('li');
+      li.className = 'repo-msg';
+      li.textContent = msg;
+      const a = document.createElement('a');
+      a.href = `https://github.com/${user}?tab=repositories`;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'repo-link mono';
+      a.textContent = 'View on GitHub →';
+      list.appendChild(li);
+      list.appendChild(a);
+    }
+
+    async function load() {
+      try {
+        const cached = sessionStorage.getItem(cacheKey);
+        if (cached) {
+          render(JSON.parse(cached));
+          return;
+        }
+        const res = await fetch(
+          `https://api.github.com/users/${user}/repos?per_page=100&sort=updated`,
+          { headers: { Accept: 'application/vnd.github+json' } }
+        );
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const repos: Repo[] = await res.json();
+        sessionStorage.setItem(cacheKey, JSON.stringify(repos));
+        render(repos);
+      } catch (e) {
+        renderMessage('Could not load repos right now.');
+      }
+    }
+
+    load();
+  }
+</script>
+
+<style>
+  .repos h3 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .all {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .repo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    max-height: 340px;
+    overflow-y: auto;
+    /* miejsce na pasek przewijania, by tekst nie dotykał krawędzi */
+    padding-right: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+  }
+  .repo-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  .repo-list::-webkit-scrollbar-thumb {
+    background: var(--line);
+    border-radius: 8px;
+  }
+  .repo-list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .repo {
+    border-top: 1px solid var(--line-soft);
+  }
+  .repo:first-child {
+    border-top: none;
+  }
+  .repo-link {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 9px 0;
+  }
+  .repo-link:hover .repo-name {
+    color: var(--accent);
+  }
+  .repo-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .repo-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--heading);
+  }
+  .repo-badge {
+    font-size: 9.5px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid var(--line-soft);
+  }
+  .repo-badge.native {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+  .repo-badge.fork {
+    color: var(--faint);
+    background: var(--bg-elev-2);
+  }
+  .repo-stars {
+    font-size: 11px;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .repo-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .repo-lang {
+    font-size: 11px;
+    color: var(--faint);
+  }
+  .repo-msg {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 6px 0 2px;
+  }
+  /* skeletony podczas ładowania */
+  .skel {
+    height: 34px;
+    margin: 8px 0;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(
+      90deg,
+      var(--bg-elev-2) 25%,
+      var(--bg) 50%,
+      var(--bg-elev-2) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.3s infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position: -200% 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skel {
+      animation: none;
+    }
+  }
+</style>

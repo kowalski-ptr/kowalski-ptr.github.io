@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Search" path="/search" description="Full-text search across all knowbase notes.">
+  <section class="wrap page">
+    <h1>Search</h1>
+    <p class="lead">Full-text search across all notes.</p>
+    <div id="search"></div>
+    <noscript>
+      <p class="lead">Search needs JavaScript enabled.</p>
+    </noscript>
+  </section>
+</Base>
+
+<!-- Pagefind: pliki generowane przy buildzie do /pagefind (działa w preview/produkcji, nie w `astro dev`) -->
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script is:inline src="/pagefind/pagefind-ui.js"></script>
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typeof PagefindUI === 'undefined') return;
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      showImages: false,
+      resetStyles: false,
+      translations: {
+        placeholder: 'Search notes…',
+        zero_results: 'No results for [SEARCH_TERM]',
+      },
+    });
+  });
+</script>
+
+<style is:global>
+  /* mapowanie zmiennych Pagefind UI na tokeny T3 */
+  #search {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--bg-elev);
+    --pagefind-ui-border: var(--line);
+    --pagefind-ui-tag: var(--bg-elev-2);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: var(--radius);
+    --pagefind-ui-font: var(--font-sans);
+  }
+  #search .pagefind-ui__search-input {
+    background: var(--bg-elev);
+    color: var(--text);
+    border-color: var(--line);
+    box-shadow: var(--shadow);
+  }
+  #search .pagefind-ui__search-input::placeholder {
+    color: var(--faint);
+  }
+  #search .pagefind-ui__result {
+    border-top: 1px solid var(--line-soft);
+  }
+  #search .pagefind-ui__result-title a {
+    color: var(--heading);
+  }
+  #search .pagefind-ui__result-title a:hover {
+    color: var(--accent);
+  }
+  #search .pagefind-ui__result-excerpt {
+    color: var(--muted);
+  }
+  #search mark {
+    background: var(--selection);
+    color: var(--heading);
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+</style>
+
+<style>
+  .page {
+    padding-top: 48px;
+    max-width: 760px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 720;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    margin: 0 0 8px;
+  }
+  .lead {
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+</style>

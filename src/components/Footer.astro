@@ -5,7 +5,11 @@ const year = new Date().getFullYear();
 <footer class="foot">
   <div class="wrap foot-in">
     <span class="mono">// knowbase — Astro + TinaCMS · GitHub Pages</span>
-    <span class="mono dim">© {year}</span>
+    <span class="foot-right mono">
+      <a href="/rss.xml">RSS</a>
+      <a href="https://github.com/kowalski-ptr" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <span class="dim">© {year}</span>
+    </span>
   </div>
 </footer>
 
@@ -22,6 +26,14 @@ const year = new Date().getFullYear();
     padding: 28px 0;
     font-size: 13px;
     color: var(--faint);
+  }
+  .foot-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .foot-right a:hover {
+    color: var(--accent);
   }
   .dim {
     opacity: 0.8;
