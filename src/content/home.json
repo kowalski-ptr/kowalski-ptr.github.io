@@ -1,0 +1,7 @@
+{
+  "eyebrow": "Engineering notebook",
+  "title": "Notes on code, infrastructure & AI.",
+  "lead": "A living collection of what I'm learning and building — from Rust and Go patterns, through Kubernetes and networking, to LLMs, agents and RAG. Written for my future self, open to you.",
+  "aboutTitle": "About this notebook",
+  "aboutText": "A developer's second brain. Notes committed like code — versioned, no vendor lock-in."
+}

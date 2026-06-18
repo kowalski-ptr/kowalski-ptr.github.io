@@ -31,6 +31,47 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        // Singleton: treść strony głównej (jeden plik src/content/home.json)
+        name: 'home',
+        label: 'Strona główna',
+        path: 'src/content',
+        format: 'json',
+        match: { include: 'home' },
+        ui: {
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'string',
+            name: 'eyebrow',
+            label: 'Nadtytuł (mały, nad nagłówkiem)',
+          },
+          {
+            type: 'string',
+            name: 'title',
+            label: 'Główny nagłówek',
+            required: true,
+          },
+          {
+            type: 'string',
+            name: 'lead',
+            label: 'Zdanie wstępne (lead)',
+            ui: { component: 'textarea' },
+          },
+          {
+            type: 'string',
+            name: 'aboutTitle',
+            label: 'Boks w sidebarze — tytuł',
+          },
+          {
+            type: 'string',
+            name: 'aboutText',
+            label: 'Boks w sidebarze — tekst',
+            ui: { component: 'textarea' },
+          },
+        ],
+      },
+      {
         name: 'post',
         label: 'Notatki',
         path: 'src/content/posts',

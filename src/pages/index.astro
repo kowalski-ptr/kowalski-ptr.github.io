@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import NoteCard from '../components/NoteCard.astro';
 import { readingTime } from '../lib/format';
+import home from '../content/home.json';
 
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -26,13 +27,9 @@ const topCats = [...catCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6)
 <Base path="/">
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow mono">Engineering notebook</div>
-      <h1>Notes on code, infrastructure&nbsp;&&nbsp;AI.</h1>
-      <p class="lead">
-        A living collection of what I'm learning and building — from Rust and Go
-        patterns, through Kubernetes and networking, to LLMs, agents and RAG.
-        Written for my future self, open to&nbsp;you.
-      </p>
+      {home.eyebrow && <div class="eyebrow mono">{home.eyebrow}</div>}
+      <h1>{home.title}</h1>
+      {home.lead && <p class="lead">{home.lead}</p>}
       {
         topTags.length > 0 && (
           <div class="tags-row">
@@ -92,11 +89,8 @@ const topCats = [...catCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6)
           )
         }
         <div class="box">
-          <h3>About this notebook</h3>
-          <p class="aside-p">
-            A developer's second brain. Notes committed like code — versioned,
-            no vendor lock-in.
-          </p>
+          <h3>{home.aboutTitle}</h3>
+          {home.aboutText && <p class="aside-p">{home.aboutText}</p>}
           <a class="aside-link mono" href="/about">more →</a>
         </div>
       </aside>
