@@ -1,0 +1,22 @@
+{
+  "name": "knowbase",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "// knowbase — engineering notebook (Astro + TinaCMS + GitHub Pages)",
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "dev:astro": "astro dev",
+    "build": "astro build",
+    "build:cloud": "tinacms build && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.6.1"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.3.0",
+    "@tinacms/cli": "^1.9.5",
+    "tinacms": "^2.7.5"
+  }
+}

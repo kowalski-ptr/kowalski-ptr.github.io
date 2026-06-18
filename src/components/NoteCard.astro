@@ -1,0 +1,94 @@
+---
+import { formatDate, isoDate } from '../lib/format';
+
+interface Props {
+  href: string;
+  title: string;
+  description?: string;
+  category: string;
+  date: Date;
+  readingTime: number;
+  tags?: string[];
+}
+
+const { href, title, description, category, date, readingTime, tags = [] } =
+  Astro.props;
+---
+
+<a class="note" href={href}>
+  <div class="meta mono">
+    <span class="cat">{category}</span>
+    <time datetime={isoDate(date)}>{formatDate(date)}</time>
+    <span>{readingTime} min</span>
+  </div>
+  <h3>{title}</h3>
+  {description && <p>{description}</p>}
+  {
+    tags.length > 0 && (
+      <div class="pills">
+        {tags.slice(0, 4).map((t) => (
+          <span class="pill mono">{t}</span>
+        ))}
+      </div>
+    )
+  }
+</a>
+
+<style>
+  .note {
+    display: block;
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    transition:
+      transform 0.15s ease,
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .note:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+  }
+  .meta {
+    display: flex;
+    gap: 12px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--faint);
+    margin-bottom: 9px;
+  }
+  .cat {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  h3 {
+    margin: 0 0 8px;
+    font-size: 19.5px;
+    font-weight: 680;
+    letter-spacing: -0.01em;
+    color: var(--heading);
+  }
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14.5px;
+  }
+  .pills {
+    margin-top: 13px;
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--faint);
+    background: var(--bg-elev-2);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    padding: 3px 9px;
+  }
+</style>

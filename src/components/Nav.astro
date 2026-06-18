@@ -1,0 +1,74 @@
+---
+const links = [
+  { href: '/', label: 'Notatki' },
+  { href: '/tags', label: 'Tematy' },
+  { href: '/about', label: 'O mnie' },
+];
+const here = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? here === '/' : here.startsWith(href);
+---
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="knowbase — strona główna">
+      <span class="slash">//</span> knowbase
+    </a>
+    <nav class="nav-links" aria-label="Główna nawigacja">
+      {
+        links.map((l) => (
+          <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--bg-nav);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+  .brand {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--heading);
+    letter-spacing: -0.01em;
+  }
+  .brand .slash {
+    color: var(--accent);
+  }
+  .nav-links {
+    display: flex;
+    gap: 26px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .nav-links a:hover {
+    color: var(--heading);
+  }
+  .nav-links a[aria-current='page'] {
+    color: var(--heading);
+    font-weight: 600;
+  }
+  @media (max-width: 560px) {
+    .nav-links {
+      gap: 18px;
+      font-size: 14px;
+    }
+  }
+</style>

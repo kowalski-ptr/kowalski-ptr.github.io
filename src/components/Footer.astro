@@ -1,0 +1,29 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span class="mono">// knowbase — Astro + TinaCMS · GitHub Pages</span>
+    <span class="mono dim">© {year}</span>
+  </div>
+</footer>
+
+<style>
+  .foot {
+    border-top: 1px solid var(--line);
+    margin-top: 64px;
+  }
+  .foot-in {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 0;
+    font-size: 13px;
+    color: var(--faint);
+  }
+  .dim {
+    opacity: 0.8;
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="O mnie" path="/about">
+  <article class="wrap article">
+    <header class="head">
+      <div class="eyebrow mono">O tym miejscu</div>
+      <h1>Druga pamięć dev-a.</h1>
+    </header>
+
+    <div class="prose">
+      <p>
+        <strong>knowbase</strong> to mój żywy notatnik inżynierski — miejsce,
+        w którym zapisuję to, czego się uczę i co buduję w obszarze
+        programowania, infrastruktury IT i&nbsp;AI. To nie pamiętnik, tylko baza
+        wiedzy: notatki, wzorce, pułapki, decyzje techniczne.
+      </p>
+
+      <h2>Dlaczego tak zbudowane</h2>
+      <ul>
+        <li>
+          <strong>Pliki, nie baza danych.</strong> Każda notatka to Markdown
+          w&nbsp;repozytorium — wersjonowana, moja, bez vendor lock-in.
+        </li>
+        <li>
+          <strong>Astro</strong> — statyczny output, świetne Core Web Vitals,
+          zero zbędnego JS.
+        </li>
+        <li>
+          <strong>TinaCMS</strong> — wygodne UI do pisania (też z telefonu),
+          a zmiany i tak lądują jako commity w&nbsp;repo.
+        </li>
+        <li>
+          <strong>GitHub Pages</strong> — hosting prosto z&nbsp;repozytorium.
+        </li>
+      </ul>
+
+      <h2>Czego tu szukać</h2>
+      <p>
+        Rust, Go, systemy rozproszone, Kubernetes i&nbsp;sieci, bazy danych,
+        observability, a&nbsp;także LLM-y, agenci, RAG i&nbsp;praktyczne
+        wdrożenia AI. Notatki pisane przede wszystkim dla mnie z&nbsp;przyszłości
+        — ale jeśli komuś się przydadzą, tym lepiej.
+      </p>
+
+      <hr />
+      <p class="mono small">
+        Stack: Astro · TinaCMS · GitHub Pages. Kod open, content mój.
+      </p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 720px;
+    padding-top: 48px;
+  }
+  .eyebrow {
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .head {
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: 720;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    margin: 12px 0 0;
+  }
+  .small {
+    font-size: 12.5px;
+    color: var(--faint);
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import NoteCard from '../../components/NoteCard.astro';
+import { readingTime } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const tags = new Set<string>();
+  for (const p of posts) for (const t of p.data.tags) tags.add(t);
+
+  return [...tags].map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter((p) => p.data.tags.includes(tag))
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<Base title={`#${tag}`} path={`/tags/${tag}`}>
+  <section class="wrap page">
+    <a class="back mono" href="/tags">← wszystkie tematy</a>
+    <h1><span class="hash">#</span>{tag}</h1>
+    <p class="lead">{posts.length} {posts.length === 1 ? 'notatka' : 'notatek'}</p>
+    {
+      posts.map((p) => (
+        <div class="note-wrap">
+          <NoteCard
+            href={`/notes/${p.id}`}
+            title={p.data.title}
+            description={p.data.description}
+            category={p.data.category}
+            date={p.data.date}
+            readingTime={readingTime(p.body, p.data.readingTime)}
+            tags={p.data.tags}
+          />
+        </div>
+      ))
+    }
+  </section>
+</Base>
+
+<style>
+  .page {
+    padding-top: 40px;
+    max-width: 820px;
+  }
+  .back {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--faint);
+    margin-bottom: 22px;
+  }
+  .back:hover {
+    color: var(--accent);
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 720;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+  .hash {
+    color: var(--accent);
+  }
+  .lead {
+    color: var(--muted);
+    margin: 0 0 28px;
+    font-size: 14.5px;
+  }
+  .note-wrap + .note-wrap {
+    margin-top: 16px;
+  }
+</style>

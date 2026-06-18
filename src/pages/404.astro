@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="404 — nie znaleziono">
+  <section class="wrap nf">
+    <div class="code mono">404</div>
+    <h1>Tej notatki tu nie ma.</h1>
+    <p>Może została przeniesiona, albo jeszcze jej nie napisałem.</p>
+    <a class="btn mono" href="/">← wróć do notatek</a>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    padding: 90px 0 60px;
+    text-align: center;
+    max-width: 560px;
+  }
+  .code {
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 720;
+    color: var(--heading);
+    margin: 8px 0 10px;
+  }
+  p {
+    color: var(--muted);
+    margin: 0 0 26px;
+  }
+  .btn {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--accent);
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    border-radius: var(--radius-sm);
+    padding: 9px 16px;
+  }
+  .btn:hover {
+    border-color: var(--accent);
+  }
+</style>

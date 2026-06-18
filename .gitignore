@@ -1,0 +1,26 @@
+# build
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# tina
+tina/__generated__/
+public/admin/
+
+# env
+.env
+.env.production
+.env.local
+
+# os / editor
+.DS_Store
+*.log
+npm-debug.log*
+
+# podglądy projektowe (mockupy HTML)
+_previews/
+
+# lokalne narzędzia/skille — nie publikujemy
+.claude/

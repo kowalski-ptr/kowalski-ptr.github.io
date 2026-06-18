@@ -1,0 +1,119 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate, isoDate, readingTime } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, category, date, updated, tags } = post.data;
+const minutes = readingTime(post.body, post.data.readingTime);
+---
+
+<Base title={title} description={description} path={`/notes/${post.id}`}>
+  <article class="wrap article">
+    <a class="back mono" href="/">← wszystkie notatki</a>
+
+    <header class="head">
+      <div class="meta mono">
+        <span class="cat">{category}</span>
+        <time datetime={isoDate(date)}>{formatDate(date)}</time>
+        <span>{minutes} min</span>
+        {updated && <span class="upd">akt. {formatDate(updated)}</span>}
+      </div>
+      <h1>{title}</h1>
+      {description && <p class="desc">{description}</p>}
+      {
+        tags.length > 0 && (
+          <div class="pills">
+            {tags.map((t) => (
+              <a class="pill mono" href={`/tags/${encodeURIComponent(t)}`}>
+                #{t}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: 760px;
+    padding-top: 38px;
+  }
+  .back {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--faint);
+    margin-bottom: 26px;
+  }
+  .back:hover {
+    color: var(--accent);
+  }
+  .head {
+    padding-bottom: 26px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--faint);
+    margin-bottom: 12px;
+  }
+  .cat {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .upd {
+    font-style: italic;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.15;
+    margin: 0 0 12px;
+    font-weight: 720;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+  }
+  .desc {
+    margin: 0;
+    font-size: 18px;
+    color: var(--muted);
+  }
+  .pills {
+    margin-top: 18px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--faint);
+    background: var(--bg-elev-2);
+    border: 1px solid var(--line-soft);
+    border-radius: 999px;
+    padding: 4px 11px;
+  }
+  .pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+</style>
