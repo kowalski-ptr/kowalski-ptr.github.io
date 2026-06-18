@@ -6,7 +6,12 @@ const year = new Date().getFullYear();
   <div class="wrap foot-in">
     <span class="mono">// knowbase — Astro + TinaCMS · GitHub Pages</span>
     <span class="foot-right mono">
-      <a href="/rss.xml">RSS</a>
+      <a class="rss" href="/rss.xml" aria-label="RSS feed">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true">
+          <path d="M6.18 17.82a2.18 2.18 0 1 0 0 4.36 2.18 2.18 0 0 0 0-4.36zM4 10.1v3.07c2.9 0 5.27 2.37 5.27 5.27h3.07c0-4.6-3.74-8.34-8.34-8.34zm0-5.94v3.07C9.86 7.23 14.77 12.14 14.77 18h3.07C17.84 10.18 11.82 4.16 4 4.16z"/>
+        </svg>
+        RSS
+      </a>
       <a href="https://github.com/kowalski-ptr" target="_blank" rel="noopener noreferrer">GitHub</a>
       <span class="dim">© {year}</span>
     </span>
@@ -34,6 +39,14 @@ const year = new Date().getFullYear();
   }
   .foot-right a:hover {
     color: var(--accent);
+  }
+  .rss {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .rss svg {
+    color: #f26522;
   }
   .dim {
     opacity: 0.8;
