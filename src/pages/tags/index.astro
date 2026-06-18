@@ -12,13 +12,13 @@ const tags = [...tagCounts.entries()].sort((a, b) =>
 );
 ---
 
-<Base title="Tematy" path="/tags">
+<Base title="Topics" path="/tags">
   <section class="wrap page">
-    <h1>Tematy</h1>
-    <p class="lead">Wszystkie tagi notatek. Kliknij, by zawęzić.</p>
+    <h1>Topics</h1>
+    <p class="lead">All note tags. Click one to filter.</p>
     {
       tags.length === 0 ? (
-        <p class="empty">Brak tagów — pojawią się po dodaniu notatek.</p>
+        <p class="empty">No tags yet. They will appear once notes are added.</p>
       ) : (
         <div class="cloud">
           {tags.map(([t, n]) => (

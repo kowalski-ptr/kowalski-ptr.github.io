@@ -2,51 +2,51 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="O mnie" path="/about">
+<Base title="About" path="/about">
   <article class="wrap article">
     <header class="head">
-      <div class="eyebrow mono">O tym miejscu</div>
-      <h1>Druga pamięć dev-a.</h1>
+      <div class="eyebrow mono">About this notebook</div>
+      <h1>A developer's second brain.</h1>
     </header>
 
     <div class="prose">
       <p>
-        <strong>knowbase</strong> to mój żywy notatnik inżynierski — miejsce,
-        w którym zapisuję to, czego się uczę i co buduję w obszarze
-        programowania, infrastruktury IT i&nbsp;AI. To nie pamiętnik, tylko baza
-        wiedzy: notatki, wzorce, pułapki, decyzje techniczne.
+        <strong>knowbase</strong> is my living engineering notebook. It is where
+        I write down what I am learning and building across software,
+        infrastructure, and AI. It is not a diary. It is a knowledge base:
+        notes, patterns, gotchas, and technical decisions.
       </p>
 
-      <h2>Dlaczego tak zbudowane</h2>
+      <h2>Why it is built this way</h2>
       <ul>
         <li>
-          <strong>Pliki, nie baza danych.</strong> Każda notatka to Markdown
-          w&nbsp;repozytorium — wersjonowana, moja, bez vendor lock-in.
+          <strong>Files, not a database.</strong> Every note is Markdown in the
+          repository. Versioned, mine, with no vendor lock-in.
         </li>
         <li>
-          <strong>Astro</strong> — statyczny output, świetne Core Web Vitals,
-          zero zbędnego JS.
+          <strong>Astro.</strong> Static output, strong Core Web Vitals, and no
+          unnecessary JavaScript.
         </li>
         <li>
-          <strong>TinaCMS</strong> — wygodne UI do pisania (też z telefonu),
-          a zmiany i tak lądują jako commity w&nbsp;repo.
+          <strong>TinaCMS.</strong> A comfortable writing UI that also works from
+          a phone, while every change still lands as a commit in the repo.
         </li>
         <li>
-          <strong>GitHub Pages</strong> — hosting prosto z&nbsp;repozytorium.
+          <strong>GitHub Pages.</strong> Hosting straight from the repository.
         </li>
       </ul>
 
-      <h2>Czego tu szukać</h2>
+      <h2>What you will find here</h2>
       <p>
-        Rust, Go, systemy rozproszone, Kubernetes i&nbsp;sieci, bazy danych,
-        observability, a&nbsp;także LLM-y, agenci, RAG i&nbsp;praktyczne
-        wdrożenia AI. Notatki pisane przede wszystkim dla mnie z&nbsp;przyszłości
-        — ale jeśli komuś się przydadzą, tym lepiej.
+        Rust, Go, distributed systems, Kubernetes and networking, databases, and
+        observability, along with LLMs, agents, RAG, and practical AI work. The
+        notes are written first for my future self. If they help someone else,
+        even better.
       </p>
 
       <hr />
       <p class="mono small">
-        Stack: Astro · TinaCMS · GitHub Pages. Kod open, content mój.
+        Stack: Astro, TinaCMS, GitHub Pages. Code open, content mine.
       </p>
     </div>
   </article>

@@ -25,9 +25,9 @@ const { tag, posts } = Astro.props;
 
 <Base title={`#${tag}`} path={`/tags/${tag}`}>
   <section class="wrap page">
-    <a class="back mono" href="/tags">← wszystkie tematy</a>
+    <a class="back mono" href="/tags">← all topics</a>
     <h1><span class="hash">#</span>{tag}</h1>
-    <p class="lead">{posts.length} {posts.length === 1 ? 'notatka' : 'notatek'}</p>
+    <p class="lead">{posts.length} {posts.length === 1 ? 'note' : 'notes'}</p>
     {
       posts.map((p) => (
         <div class="note-wrap">
