@@ -107,6 +107,8 @@ export default defineConfig({
             options: [
               'AI / LLM',
               'Infra',
+              'Container',
+              'Git',
               'Rust',
               'Go',
               'Bazy danych',

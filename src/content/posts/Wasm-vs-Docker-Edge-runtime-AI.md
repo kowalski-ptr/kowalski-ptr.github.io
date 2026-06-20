@@ -1,7 +1,7 @@
 ---
 title: "Wasm vs Docker: Edge runtime with AI"
 description: "Wasm vs Docker: Edge runtime with AI"
-category: "Containers"
+category: "Container"
 tags: ["wasm", "wasmer", "tool-use", "docker", "architecture", "lang:pl"]
 date: 2026-06-19
 draft: false
