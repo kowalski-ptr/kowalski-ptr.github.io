@@ -2,7 +2,7 @@
 title: "When TinaCMS won't build: the stale lock file loop"
 description: "A schema change in TinaCMS broke the deploy with a 'local schema doesn't match remote' error. Here is what caused it and how to break out of the loop."
 category: "Infra"
-tags: ["tinacms", "astro", "github-pages", "ci-cd"]
+tags: ["tinacms", "astro", "github-pages", "ci-cd", "lang:en"]
 date: 2026-06-18
 draft: false
 ---

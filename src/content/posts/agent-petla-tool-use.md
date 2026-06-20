@@ -2,7 +2,7 @@
 title: "Pętla tool-use w agencie: notatki z pierwszego production runu"
 description: "Retry, idempotencja narzędzi i dlaczego streaming zmienia projekt pętli sterującej."
 category: "AI / LLM"
-tags: ["claude-api", "agents", "tool-use", "vps"]
+tags: ["claude-api", "agents", "tool-use", "vps", "lang:pl"]
 date: 2026-06-15
 draft: false
 ---
