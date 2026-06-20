@@ -3,8 +3,8 @@ title: "Two ways a static blog deploy breaks: Pages mode and one bad frontmatter
 description: "A green local build and a failing deploy usually come down to one of two causes on Astro plus GitHub Pages. Here is how to spot and fix each."
 category: "Infra"
 tags: ["github-pages", "astro", "ci-cd", "jekyll", "debugging", "lang:en"]
-date: 2026-06-20
-draft: true
+date: 2026-06-21
+draft: false
 ---
 
 A static blog on Astro and GitHub Pages is simple until a deploy goes red for no

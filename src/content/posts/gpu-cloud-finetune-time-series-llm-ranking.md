@@ -3,8 +3,8 @@ title: "Ranking platform GPU-cloud do fine-tuningu małych modeli LLM time serie
 description: "Analiza i ranking platform wynajmu GPU pod kątem ceny, jakości i łatwości konfiguracji do fine-tuningu małych modeli time series LLM. Porównanie czasu treningu z CPU AMD Ryzen 7 7700 Pro."
 category: "AI"
 tags: ["llm", "fine-tuning", "gpu-cloud", "time-series", "vast-ai", "runpod", "lambda", "training", "lang:pl"]
-date: 2026-06-20
-draft: true
+date: 2026-06-21
+draft: false
 ---
 
 # Fine-tuning małych modeli LLM time series — który GPU cloud wybrać?
