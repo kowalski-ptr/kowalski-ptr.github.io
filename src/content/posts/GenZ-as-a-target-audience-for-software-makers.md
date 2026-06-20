@@ -1,4 +1,11 @@
-# Pokolenie Gen Z — profil dla twórcy software
+---
+title: "Pokolenie Gen Z — profil dla twórcy software"
+description: "Profil pokolenia Gen Z dla twórców oprogramowania: wartości, oczekiwania wobec UX i implikacje produktowe."
+category: "Notatka"
+tags: ["product", "ux", "gen-z", "lang:pl"]
+date: 2026-06-19
+draft: false
+---
 
 ## Kim są (urodzeni ~1997–2012)
 

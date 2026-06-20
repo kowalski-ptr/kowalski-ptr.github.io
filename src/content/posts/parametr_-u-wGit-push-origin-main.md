@@ -1,5 +1,5 @@
 ---
-tile: "Parametr -u w komendzie 'git push origin main'"
+title: "Parametr -u w komendzie 'git push origin main'"
 description: "Parametr -u w komendzie 'git push origin main'"
 category: "Git"
 tags: ["push", "lang:pl"]
