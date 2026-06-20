@@ -104,19 +104,10 @@ export default defineConfig({
             type: 'string',
             name: 'category',
             label: 'Kategoria',
-            options: [
-              'AI / LLM',
-              'Infra',
-              'Container',
-              'Git',
-              'Rust',
-              'Go',
-              'Bazy danych',
-              'Networking',
-              'Observability',
-              'Meta',
-              'Notatka',
-            ],
+            // wolny tekst (bez options) — wpisz dowolną kategorię, nie zmienia
+            // schematu Tiny, więc nie wymaga reindexu. Listę istniejących kategorii
+            // sprawdzisz przez `npm run categories`.
+            description: 'Dowolna kategoria, np. Infra, Container, Git, UIUX.',
           },
           {
             type: 'string',
