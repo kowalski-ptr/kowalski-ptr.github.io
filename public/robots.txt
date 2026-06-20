@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kowalski-ptr.github.io/sitemap-index.xml
+
+# AI-readable content map (llmstxt.org)
+# /llms.txt        — concise index of notes
+# /llms-full.txt   — full plain-text content
