@@ -63,7 +63,7 @@ Istniejące aplikacje Node.js i natywne moduły działają niezmodyfikowane, pod
 
 ### Workflow AI-first: skrót z roku do 2 tygodni
 
-To co mnie tu uderza z perspektywy "single-person AI-era corporation" — model pracy Wasmera:
+To co mnie tu uderza z perspektywy systemow multiagentowych — model pracy Wasmera:
 
 Inżynierowie Wasmera przestali dotykać kodu bezpośrednio. Zamiast tego zaczęli *kierować* Codexem — wskazywali gdzie chcą dojść, a AI realizowała ścieżkę. To dokładnie ten shift widoczny przy budowaniu systemów w modelu jeden-operator-jedna-firma — od operatora do orchestratora.
 
