@@ -4,7 +4,7 @@ description: "The BoE dropped retail and business holding caps on systemic sterl
 category: "tech-invest"
 tags: ["stablecoin", "regulation", "MiCA", "BoE", "crypto", "fintech", "UK", "EU", "lang:en"]
 date: 2026-06-22
-draft: true
+draft: false
 ---
 
 # Bank of England Eases Stablecoin Rules: What It Means for Crypto and Why MiCA Still Wins for Token Issuers
