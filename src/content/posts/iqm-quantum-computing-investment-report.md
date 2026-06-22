@@ -4,7 +4,7 @@ description: "Deep-dive on IQM's upcoming Nasdaq listing, its 54-qubit sale to P
 category: "tech-invest"
 tags: ["quantum-computing", "IQM", "IQMX", "IonQ", "Rigetti", "IBM", "investment", "SPAC", "lang:en"]
 date: 2026-06-22
-draft: true
+draft: false
 ---
 
 # IQM Quantum Computers: Europe's Challenger in the Global Quantum Race
