@@ -325,6 +325,71 @@ Photonic quantum computing (room temperature, potentially easier to scale) is ge
 
 ---
 
+## Part V — Creotech: Poland's Two-Headed Quantum Play
+
+Poland has its own quantum computing story — and it's more nuanced than a single company. The Creotech group has deliberately split itself into two separate listed entities, each attacking a different layer of the technology stack.
+
+> **Ticker confusion note:** CRI and CRQ are related but different. CRI is the satellite/space parent; CRQ is the quantum spinoff. Both are listed on GPW (Warsaw Stock Exchange).
+
+---
+
+### Creotech Instruments SA — Ticker: CRI (GPW)
+
+Creotech Instruments is **not a quantum computing company**. It is Poland's leading microsatellite manufacturer and one of Europe's fastest-growing space technology firms.
+
+**What it does:**
+- Proprietary **HyperSat** microsatellite platform (functions like a standardized PC chassis — customers plug in their own radar, camera, or comms payload; Creotech handles power, navigation, thermal, and launch)
+- Satellite production capacity: currently 10 microsatellites/year at the Piaseczno facility near Warsaw; planning to scale to 40/year by 2029
+- Customers span defence, Earth observation, and telecommunications
+
+**Financials (2025):**
+- Revenue: **PLN 146M (~$40M USD)** from space sector — record year
+- **First full-year profit** in company history (2025)
+- Order backlog: PLN 600M (~$165M)
+- Pipeline visibility: PLN 6.6B
+- Contracts include a **€59M ESA contract** and growing NATO-adjacent defence demand
+
+**Capital plans:**
+- **$118 million capital raise** to build a new satellite production factory in Poland (target: 2029)
+- The company is positioning HyperSat as a standard platform for the "Three Seas" countries (12 Central/Eastern European nations) — a potentially dominant supplier position in a region with limited domestic satellite capability
+
+**Why it matters for this report:**
+CRI is the parent that spun off the quantum business. It retains a stake in CRQ and benefits indirectly from the quantum halo effect, but its core value proposition is satellites, not qubits. For investors: CRI is a **profitable space hardware company with a massive government backlog** — a different risk profile than pure-play quantum stocks.
+
+**Exchange:** GPW main market. Not listed on U.S. exchanges.
+
+---
+
+### Creotech Quantum SA — Ticker: CRQ (GPW)
+
+Creotech Quantum is the quantum computing spin-off, separated from Creotech Instruments and listed independently on the GPW main market on **April 17, 2026**, at a debut valuation of approximately **PLN 350M (~$95M)**.
+
+**Critical distinction: Creotech Quantum does NOT build quantum processors.** It builds the **classical control infrastructure** that runs quantum experiments and quantum computers — the electronics, firmware, and systems without which quantum processors are useless. Think of it as the company that builds CUDA-capable motherboards, not the GPU itself.
+
+**Core product lines:**
+- **Sinara/ARTIQ ecosystem** — a control and measurement platform for quantum processors. This is the de facto open-source standard for controlling trapped-ion and neutral-atom quantum computers globally. Creotech Quantum manufacturers the physical hardware for this ecosystem.
+- **MTCA systems** — modular electronics for control, synchronization, and data processing in quantum physics labs
+- **White Rabbit** — precision time synchronization for long-distance quantum networks (used in CERN and major European research infrastructure)
+- **Quantum Key Distribution (QKD) systems** — hardware for information-theoretically secure communication channels
+
+**Revenue (2025):** approximately PLN 14–16M (~$4M), with growth >100% year-on-year from quantum segment.
+
+**Who buys from Creotech Quantum?**
+The customer base is primarily research institutions, national quantum labs, and companies building or operating quantum computers. Notably: the Sinara/ARTIQ ecosystem is used by IonQ, by European quantum research programs, and by academic labs worldwide. This means **Creotech Quantum is a supplier to the quantum computing sector, not just a participant in it** — its revenue grows as the number of quantum systems globally increases, regardless of which quantum processor vendor wins.
+
+**The "picks and shovels" thesis:**
+In the 1850s California Gold Rush, the people who consistently made money were not gold miners but those who sold shovels, denim, and provisions. Creotech Quantum is positioned analogously: as every major quantum hardware player (IBM, IonQ, IQM, Quantinuum) deploys more systems, demand for quantum control electronics — the picks and shovels of the quantum era — grows predictably. This makes CRQ's revenue less dependent on picking the right qubit architecture winner.
+
+**Risks:**
+- Revenue base is still small (~$4M) — highly speculative at current valuation
+- Customer concentration risk (heavy research lab exposure)
+- QKD is a competitive and somewhat fragmented market
+- As quantum hardware matures, large players (IBM, IonQ) may build more of their own control systems in-house
+
+**Exchange:** GPW main market (Warsaw). Not listed on U.S. exchanges. For non-Polish investors: low liquidity, PLN-denominated, limited analyst coverage.
+
+---
+
 ## Ranking Summary Tables
 
 ### Ranking #1: Technology × Business Today
@@ -335,8 +400,12 @@ Photonic quantum computing (room temperature, potentially easier to scale) is ge
 | 2 | **IonQ (IONQ)** | $130M | ★★★★★ | ★★★★★ | ★★★★★ |
 | 3 | **IQM (IQMX)** | $36M | ★★★★☆ | ★★★★☆ | ★★★★☆ |
 | 4 | **D-Wave (QBTS)** | $24.6M | ★★★☆☆ | ★★★★☆ | ★★★★☆ |
-| 5 | **Rigetti (RGTI)** | $7.1M | ★★★☆☆ | ★★☆☆☆ | ★★★☆☆ |
-| 6 | **QUBT** | $0.3M | ★★☆☆☆ | ★☆☆☆☆ | ★★☆☆☆ |
+| 5 | **Creotech Instr. (CRI)** | $40M (space) | ★★★★☆ | ★★★★☆ | ★★★★☆ |
+| 6 | **Rigetti (RGTI)** | $7.1M | ★★★☆☆ | ★★☆☆☆ | ★★★☆☆ |
+| 7 | **Creotech Quantum (CRQ)** | ~$4M | ★★★☆☆ | ★★★☆☆ | ★★★☆☆ |
+| 8 | **QUBT** | $0.3M | ★★☆☆☆ | ★☆☆☆☆ | ★★☆☆☆ |
+
+*Note: CRI ranked by satellite business; CRQ ranked as quantum infrastructure supplier, not processor maker.*
 
 ### Ranking #2: Pure Technology — The "Next Intel/Nvidia" Race
 
@@ -345,11 +414,13 @@ Photonic quantum computing (room temperature, potentially easier to scale) is ge
 | 1 | **IonQ** | Trapped-ion, 99.99% fidelity | Photonic interconnects | Growing fast | ★★★★★ |
 | 2 | **IBM** | Superconducting + Qiskit | Massive roadmap, cloud | Dominant (Qiskit) | ★★★★★ |
 | 3 | **IQM** | Superconducting co-design | Data center hardware | Emerging | ★★★★☆ |
-| 4 | **Rigetti** | Superconducting | Limited resources | Small | ★★★☆☆ |
-| 5 | **D-Wave** | Annealing (niche) | Bounded | Optimization only | ★★☆☆☆ |
-| 6 | **QUBT** | Photonic (early) | Unknown | None yet | ★★☆☆☆ (speculative upside) |
+| 4 | **Creotech Quantum (CRQ)** | Quantum infrastructure | Grows with whole sector | Open-source (ARTIQ) | ★★★★☆ |
+| 5 | **Rigetti** | Superconducting | Limited resources | Small | ★★★☆☆ |
+| 6 | **D-Wave** | Annealing (niche) | Bounded | Optimization only | ★★☆☆☆ |
+| 7 | **QUBT** | Photonic (early) | Unknown | None yet | ★★☆☆☆ (speculative upside) |
 
 *(Quantinuum excluded — private. Would rank #1 on pure technology if public.)*
+*(CRI excluded from Ranking #2 — satellite company, different sector.)*
 
 ---
 
@@ -365,6 +436,10 @@ Photonic quantum computing (room temperature, potentially easier to scale) is ge
 
 **IBM** remains the safest quantum exposure — but you're buying the whole company, and quantum is a small fraction of the thesis.
 
+**Creotech Instruments (CRI, GPW)** is the most interesting Polish play — and it's not primarily a quantum stock. A profitable satellite company with a €59M ESA contract and PLN 6.6B pipeline, trading on the Warsaw Stock Exchange. The quantum optionality (via its CRQ stake) is essentially free. Illiquid for international investors.
+
+**Creotech Quantum (CRQ, GPW)** is the "picks and shovels" thesis within quantum: control electronics and QKD that power labs worldwide. Revenue grows with the entire sector rather than with a single hardware winner. Very early stage (~$4M revenue), high risk, but a structurally differentiated position in the quantum value chain. Listed exclusively on GPW — limited accessibility for non-Polish investors.
+
 ---
 
 *Sources:*
@@ -378,3 +453,6 @@ Photonic quantum computing (room temperature, potentially easier to scale) is ge
 - *[Benchmarking Quantum Models for Time-Series Forecasting (arXiv 2412.13878)](https://arxiv.org/pdf/2412.13878)*
 - *[Quantum Hardware Comparison 2026 (QuantumAIReport)](https://quantumaireport.info/articles/quantum-hardware-comparison-2026)*
 - *[Global Quantum Market to $3B by 2028 — QED-C Report (TheQuantumInsider)](https://thequantuminsider.com/2026/04/14/global-quantum-computing-market-to-double-by-2028-reaching-3-billion-in-revenue-qed-c-state-of-the-global-quantum-industry-2026-report-finds/)*
+- *[Creotech Quantum CRQ debiut GPW 350 mln zł (Comparic)](https://comparic.pl/creotech-quantum-debiutuje-na-gpw-z-wycena-350-mln-zl-spin-off-z-polskiej-firmy-kosmicznej/)*
+- *[Creotech plans $118M capital raise for satellite factory (SpaceNews)](https://spacenews.com/creotech-plans-118-million-capital-raise-investment-in-new-satellite-factory/)*
+- *[Creotech Instruments Q1 record results (creotech.pl)](https://creotech.pl/news/creotech-instruments-reports-record-breaking-q1-with-nearly-fourfold-year-over-year-revenue-growth/)*
