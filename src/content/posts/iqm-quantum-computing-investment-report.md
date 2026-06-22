@@ -145,7 +145,7 @@ In April 2026, **Galaxy Systemy Informatyczne** (Galaxy SI) became the **first p
 **What Galaxy is buying:**
 - IQM Radiance system: **54 qubits**
 - Delivery timeline: **Q4 2026**
-- Location: Galaxy's headquarters in **Zielona Góra, Poland**
+- Location: Galaxy's headquarters in **Zielona Gora, Poland**
 - Poland's most advanced quantum computer
 
 **What Galaxy does:**
@@ -159,6 +159,7 @@ Galaxy's decision is a bet on **technological sovereignty**. Owning the hardware
 **Why this deal matters for IQM's story:**
 It validates IQM's hypothesis that the next buyer tier is private enterprise data centers — not just government labs. It also positions IQM as the vendor of choice for European companies pursuing digital sovereignty, a strategic priority that has accelerated since 2022.
 
+Author's note: sending greetings from Zagan, Poland — old family territory, just down the road from Zielona Gora. There's something pretty special about watching a company from your childhood neck of the woods become the first private enterprise on the planet to own a quantum computer. That's not something you see coming.
 ---
 
 ## Part IV — Competitive Landscape: All Major Players
