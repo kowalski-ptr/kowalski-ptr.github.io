@@ -9,7 +9,7 @@ draft: true
 
 # AI-Native Robotics: Full Investment Report 2026
 
-Agility Robotics is going public. The humanoid robot maker announced a merger with Churchill Capital Corp XI (SPAC), valuing the company at **$2.5 billion** — with approximately $420 million from the trust and over $200 million in PIPE led by Foxconn. The expected ticker is **AGLT** on Nasdaq.
+Agility Robotics is going public. The humanoid robot maker announced a merger with Churchill Capital Corp XI (SPAC), valuing the company at **$2.5 billion** — with approximately $420 million from the trust and additional PIPE financing. The expected ticker is **AGLT** on Nasdaq.
 
 This is a signal worth mapping. Not because Agility is the most important robotics company — it isn't yet — but because SPAC listings create public price discovery for a category that has been priced entirely in private rounds at opaque valuations. The Agility IPO opens the door to a full re-rating of AI-native robotics as an investable public market theme.
 
@@ -57,12 +57,12 @@ The largest pure-play robotics ETF. Heavily weighted toward **industrial automat
 
 | Holding | Weight |
 |---|---|
-| ABB Ltd | 9.53% |
-| Keyence | 9.29% |
-| Fanuc | 8.92% |
-| NVIDIA | 8.61% |
-| Intuitive Surgical | 6.14% |
-| Daifuku | ~5.3% |
+| ABB Ltd | 9.75% |
+| Keyence | 9.40% |
+| Fanuc | 9.09% |
+| NVIDIA | 8.52% |
+| Intuitive Surgical | 6.34% |
+| Shenzhen Inovance | 4.22% |
 
 **Assessment:** BOTZ is a quality-tilt ETF — its top five are proven compounders with durable competitive moats. The NVIDIA position means you are partially buying AI compute, not just physical robots. Low humanoid exposure. Best for investors who want global diversification with a bias toward established players.
 
@@ -75,13 +75,13 @@ More speculative than BOTZ. Focuses specifically on companies deriving at least 
 
 | Holding | Weight |
 |---|---|
-| Leader Harmonious Drive Systems | 7.95% |
-| Zhejiang Hechuan Technology | 5.20% |
-| EFORT Intelligent Equipment | 5.01% |
-| Tesla | 4.69% |
-| NVIDIA | 4.56% |
+| Leader Harmonious Drive Systems | 8.22% |
+| Zhejiang Hechuan Technology | 5.36% |
+| EFORT Intelligent Robot | 5.21% |
+| Estun Automation | 4.99% |
+| Yijiahe Technology | 4.86% |
 
-**Assessment:** BOTT is the highest-beta robotics ETF available. The Chinese holdings (Leader Harmonious, Zhejiang Hechuan, EFORT) reflect where a significant portion of humanoid robot component supply chain is manufactured. High geopolitical risk, high growth optionality. For investors who want concentrated humanoid exposure rather than broad robotics.
+**Assessment:** BOTT is the highest-beta robotics ETF available. The top five holdings are **entirely Chinese companies** (~43% total China exposure), reflecting where the humanoid robot component supply chain is concentrated — harmonic drives, actuators, precision automation. High geopolitical risk, high growth optionality. For investors who want concentrated humanoid exposure rather than broad robotics.
 
 ---
 
@@ -174,15 +174,14 @@ Universal Robots is not yet AI-native in the Figure AI sense — but the transit
 
 **Thesis:** Agility is the first commercially deploying humanoid robot company to go public. Digit is deployed in real logistics operations (Amazon warehouse partnership). The SPAC valuation of $2.5B is high for current revenue but low for what the category could be worth at scale.
 
-- **Structure:** SPAC merger with Churchill Capital Corp XI
+- **Structure:** SPAC merger with Churchill Capital Corp XI (CCXI)
 - **Pro forma valuation:** ~$2.5 billion
-- **Gross proceeds:** ~$620M+ ($420M trust + $200M+ PIPE)
-- **PIPE lead:** Foxconn (existing shareholder)
+- **Trust proceeds:** ~$420M (CCXI trust) + PIPE (amount unconfirmed pre-close)
 - **Expected ticker:** AGLT (Nasdaq)
 
 Agility's Digit is a **bipedal humanoid robot** designed for logistics tasks — moving totes, loading trailers, shelf replenishment. Amazon has been deploying Digit in operational pilots. This is not demo-ware; it is being used in real supply chain environments.
 
-**AI-native credentials:** Full bipedal locomotion via learned control policies, perception via onboard AI. Not a pre-programmed industrial arm with legs.
+**Architecture note (important):** Digit is explicitly **AI-agnostic**, not AI-native. Agility deliberately chose not to build proprietary AI, instead designing Digit to integrate with external LLMs and robotics foundation models (Google DeepMind Gemini Robotics-ER trusted tester, NVIDIA). LLM integration has reduced robot onboarding time to 1–1.5 days. The bet here is on hardware and embodiment — the AI layer is plug-and-play from best-in-class third parties. This is a strategic choice, not a limitation, but it means Digit's defensibility depends on hardware execution rather than a proprietary AI moat.
 
 **Key risks:** Pre-revenue at IPO (development-stage company); execution timeline risk on cost per unit; competition from better-funded private players (Figure AI at $39B, Apptronik at $5.3B); no clear moat yet against Chinese manufacturers (Unitree preparing IPO at ~$7B).
 
@@ -192,7 +191,7 @@ Agility's Digit is a **bipedal humanoid robot** designed for logistics tasks —
 
 **Thesis:** ABB is the largest robotics and discrete automation company in the world by revenue and one of the most established. The investment case is different from pure-plays: it is a **quality compounder** that benefits from the AI upgrade cycle without the binary execution risk.
 
-- **BOTZ weight:** 9.53% (top holding)
+- **BOTZ weight:** 9.75% (top holding)
 - **Revenue:** ~$32 billion total (Robotics & Discrete Automation is one of four divisions)
 - **AI move:** ABB Automation Studio AI, cobot OmniCore controller with neural interfaces
 
@@ -214,7 +213,7 @@ ABB's risk profile is appropriate for conservative quality-growth investors who 
 | 5 | Teradyne | TER | Medium-High | Partial (UR) | Recovering | Medium |
 | 6 | Keyence | 6861:TYO | Very High | Yes (sensors) | Steady premium | Low |
 | 7 | FANUC | 6954:TYO | High | Partial | Cyclical recovery | Medium |
-| 8 | Agility Robotics | AGLT (pending) | Low (early) | Yes | Pre-revenue | Very High |
+| 8 | Agility Robotics | AGLT (pending) | Low (early) | No (AI-agnostic) | Pre-revenue | Very High |
 
 ---
 
@@ -248,9 +247,11 @@ This matters more than most investor frameworks acknowledge. A company that bolt
 
 **Confirmed AI-native architecture (as of 2026):**
 - Symbotic (full-stack AI orchestration, not WMS + robot)
-- Agility Robotics (Digit — learned locomotion and manipulation)
 - Intuitive Surgical (AI tissue analysis integrated into procedure workflow)
 - Cognex OneVision (cloud AI vision platform, new architecture)
+
+**AI-agnostic / integrator model:**
+- Agility Robotics Digit — deliberately designed to plug in external AI (Google DeepMind, NVIDIA) rather than build proprietary AI. Hardware moat, not AI moat.
 
 **Retrofitting AI onto traditional systems:**
 - Most of Fanuc's current product line
