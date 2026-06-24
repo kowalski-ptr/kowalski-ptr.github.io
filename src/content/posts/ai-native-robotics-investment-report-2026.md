@@ -17,6 +17,31 @@ This report answers the question from an equity investor's perspective: **which 
 
 ---
 
+## Market Pulse — June 24, 2026
+
+What the news feed is showing today, as this report is written:
+
+**Analyst signals:**
+- **ISS EVA upgrades SYM (Symbotic) to OVERWEIGHT** — institutional research house confirming the bull case on AI warehouse robotics
+- **ISRG up +1.98%** ($411.18) on no specific news — steady institutional accumulation pattern
+- **CGNX up +3.91% over one week** — machine vision recovering with the broader robotics theme
+
+**Price action / volatility:**
+- **TER -8.1%** in the previous session (underperformed peers significantly), followed by a **+2.57% spike** the same day ($430.90) — classic stop-hunt pattern; the business fundamentals remain intact
+- **SYM** saw intraday dip (-4.20% in prior session) followed by recovery (+2.20%) — consistent with the high-beta character of AI warehouse names
+
+**Macro / geopolitical:**
+- **Howard Lutnick (US Commerce Secretary) warns of Chinese robot threat**, calling it "the arms race that is coming" and signaling a potential US crackdown on Chinese robotics companies accessing US supply chains — directly relevant to BOTT ETF's ~43% China exposure
+- **Reuters forecast:** AI-driven automation revenue to surpass **$5 billion by 2035** as manufacturers rebuild control engineering around virtualization — market sizing data confirms the secular trend
+
+**Defense robotics in spotlight:**
+- Ukraine's largest-ever drone attack on Russia has brought drone and autonomous systems ETFs into focus — AVAV (AeroVironment) hit a 52-week low, creating a potential entry point in defense robotics adjacent to this report's coverage
+
+**Lidar / sensing:**
+- **OUST (Ouster)** showing multiple intraday price spikes — Ouster makes industrial lidar sensors that are critical infrastructure for autonomous mobile robots (AMRs) and humanoid navigation. Relevant as a picks-and-shovels play in the sensing layer.
+
+---
+
 ## Part I — The Creative Destruction Map
 
 ### Where AI-Native Robotics Displaces Existing Markets
@@ -35,6 +60,8 @@ The long-arc bet. Agility Robotics (Digit), Figure AI, Apptronik, and Tesla (Opt
 
 **5. Machine vision and sensing as infrastructure**
 Cognex, Keyence, and ISRA Vision are not "robotics companies" in the popular sense — they are the visual nervous system that makes AI robotics function. Revenue here is tied directly to how many robots are deployed globally. Every humanoid, cobot, or AGV unit shipped creates demand for machine vision components. This is the "picks and shovels" thesis applied to robotics.
+
+**Lidar as the emerging layer:** Ouster (OUST) makes industrial 3D lidar sensors that enable spatial awareness for AMRs, forklifts, and humanoid navigation. As robot deployments scale, lidar becomes mandatory infrastructure — the same way a robot without eyes cannot function in an unstructured environment. OUST is a higher-risk, smaller-cap play in this layer.
 
 ### Where Traditional Players Get Disrupted
 
@@ -135,6 +162,8 @@ Symbotic's system uses AI-native software to orchestrate thousands of autonomous
 
 **Customer concentration risk** is real: Walmart and SoftBank-backed GreenBox are dominant revenue contributors. Loss of either would be material.
 
+**Analyst action (June 24, 2026):** ISS EVA upgraded SYM to **OVERWEIGHT** — institutional confirmation of the bull case. Recent price dips (-4.20% intraday, then +2.20% recovery) reflect the high-beta nature of the stock, not deteriorating fundamentals.
+
 **AI-native credentials:** Full-stack proprietary AI — from path planning to SKU slotting optimization to predictive maintenance. Not bolted-on ML; natively designed around continuous learning.
 
 ---
@@ -167,6 +196,8 @@ The launch of **OneVision** matters strategically: it shifts Cognex from hardwar
 Universal Robots is not yet AI-native in the Figure AI sense — but the transition is underway. Cobots learning tasks through demonstration rather than programming is the vector Teradyne is investing in. The installed base of 75K+ units creates a massive upgrade market.
 
 **Note:** Teradyne is primarily a semiconductor test equipment company. Robotics is ~15% of total revenue. This is a partial play, not a pure-play.
+
+**Recent volatility (June 2026):** TER slid -8.1% in a single session (underperforming peers), attributed to broader tech sector rotation rather than robotics-specific news, followed by a same-day recovery spike of +2.57% to $430.90. Pattern consistent with institutional accumulation on weakness in a fundamentally improving business.
 
 ---
 
@@ -282,10 +313,11 @@ Note: Unitree (China-based) is reportedly the closest to a public listing among 
 ### Key Risks Across the Sector
 
 1. **Execution gap**: The entire humanoid category has a history of missing production timelines by >12 months. Tesla Optimus missed 2025 targets by >90%.
-2. **China supply chain concentration**: BOTT's top holdings are Chinese component makers — tariff and export control risk is real.
+2. **China supply chain concentration + US crackdown risk**: BOTT's top five holdings are all Chinese. US Commerce Secretary Howard Lutnick explicitly warned of a Chinese robot threat in June 2026, describing it as "the arms race that is coming" and signaling potential US restrictions. If the US extends export controls or investment screens to Chinese robotics component makers, BOTT's top holdings face direct regulatory headwind. This is a binary risk, not a gradual one.
 3. **Customer concentration**: Symbotic/Walmart, Teradyne/Apple (semiconductor test), Agility/Amazon — single-customer dependency creates binary revenue risk.
 4. **Valuation**: ISRG at ~55x forward P/E, Symbotic at elevated EV/Revenue multiples — multiple compression risk if growth disappoints even modestly.
 5. **Technology obsolescence**: The AI capabilities required for true general-purpose humanoid robots (dexterous manipulation, language understanding, physical common sense) are advancing faster than hardware — the current leaders may not be the leaders in 2028.
+6. **Defense sector displacement**: The Ukraine conflict has put autonomous weapons systems (drones, ground robots) in institutional focus. Defense-oriented robotics (AVAV, drone ETFs) is pulling capital and engineering talent from commercial robotics. AVAV at a 52-week low creates a separately investable entry point but is outside the scope of this report.
 
 ---
 
@@ -300,3 +332,5 @@ For quality-growth investors with a 3–5 year horizon:
 - **Broad exposure:** BOTZ for diversified robotics; BOTT if you want humanoid-specific concentration with higher risk
 
 The private market valuations (Figure AI at $39B, Apptronik at $5.3B) suggest that the public market has not yet fully priced the humanoid category. When these companies eventually list, there will be a re-rating event. Positioning now, through the public companies that will benefit from that wave, is the trade.
+
+Reuters forecasts AI-driven automation revenue surpassing **$5 billion by 2035** as manufacturers rebuild control engineering around virtualization — a conservative anchor point for the secular growth narrative. The Lutnick warning about Chinese robotics as an "arms race" adds a geopolitical urgency layer that will accelerate Western government procurement and domestic sourcing incentives, benefiting US and European pure-plays (ISRG, SYM, Agility) at the expense of Chinese-heavy ETFs like BOTT.
