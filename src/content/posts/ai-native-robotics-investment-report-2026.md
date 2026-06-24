@@ -4,7 +4,7 @@ description: "Agility Robotics goes public at $2.5B via SPAC. This is the trigge
 category: "tech-invest"
 tags: ["robotics", "humanoid", "AI", "SPAC", "Agility-Robotics", "BOTZ", "BOTT", "DXYZ", "Symbotic", "Intuitive-Surgical", "Cognex", "Teradyne", "investment", "lang:en"]
 date: 2026-06-24
-draft: true
+draft: false
 ---
 
 # AI-Native Robotics: Full Investment Report 2026
