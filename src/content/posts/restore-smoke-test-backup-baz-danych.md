@@ -1,10 +1,10 @@
 ---
 title: "Restore-smoke: dlaczego sam backup bazy danych to za mało"
-description: "Codzienny backup daje fałszywe poczucie bezpieczeństwa, dopóki nikt nie sprawdził, czy da się z niego faktycznie odtworzyć bazę. Wyjaśniam, czym jest automatyczny restore-smoke test i dlaczego warto go mieć zanim zaufasz produkcyjnym danym."
+description: "Codzienny backup daje fałszywe poczucie bezpieczeństwa, dopóki nikt nie sprawdził, czy da się z niego faktycznie odtworzyć bazę. Wyjaśnienie, czym jest automatyczny restore-smoke test i dlaczego warto go mieć zanim zaufasz produkcyjnym danym."
 category: "Infra"
 tags: ["backup", "postgresql", "devops", "database", "reliability", "disaster-recovery", "lang:pl"]
 date: 2026-07-08
-draft: true
+draft: false
 ---
 
 # Restore-smoke: dlaczego sam backup bazy danych to za mało
