@@ -54,6 +54,43 @@ Wynik działania jest binarny: albo dostajesz komunikat w stylu `OK restore-smok
 
 Backup jest relatywnie lekką operacją (sam dump) i zwykle robi się go codziennie. Restore jest znacznie cięższy — tworzy nową bazę i odtwarza do niej cały zestaw danych — więc uruchamianie go raz w tygodniu (najlepiej zaraz po najświeższym backupie) w zupełności wystarcza, żeby wcześnie łapać regresje, bez codziennego obciążania serwera. Zawsze można też odpalić test ręcznie, kiedy pojawi się konkretny powód do sprawdzenia (np. tuż po aktualizacji wersji bazy danych).
 
+## Praktyczna pułapka: kiedy "zielono" kłamie
+
+To nie jest teoria — to realny przypadek z wdrożenia takiego testu, który dobrze pokazuje, że sam pomysł restore-smoke to dopiero połowa roboty. Druga połowa to zaprojektowanie właściwych asercji, bo źle zaprojektowany test potrafi dać fałszywe poczucie bezpieczeństwa dokładnie tego samego rodzaju, przed którym miał chronić.
+
+### Luka nr 1: próg liczby tabel może być za słaby
+
+Pierwsza wersja testu sprawdzała tylko, czy w odtworzonej bazie istnieje jakakolwiek sensowna liczba tabel — próg ustawiony nisko, w stylu "przynajmniej jedna". Wydawało się to wystarczające, dopóki ktoś nie zwrócił uwagi na mechanizm formatu dumpu `pg_restore` w trybie custom (`-Fc`): struktura bazy — definicje tabel, wpis w tabeli wersji migracji — odtwarza się na samym początku procesu, jeszcze **zanim** zacznie się odtwarzanie właściwych danych.
+
+To oznacza, że **dump ucięty w trakcie zapisywania danych** — bo backup padł w połowie, dysk się zapełnił, albo proces został przerwany — i tak odtworzy pełny, poprawny schemat ze wszystkimi tabelami. Test, który liczy tylko tabele, zobaczy komplet i zaraportuje sukces, mimo że wszystkie tabele w środku są puste.
+
+Dla systemu, w którym określone dane wpadają do bazy tylko raz — np. zaimportowany, kosztowny zestaw historyczny, którego nie da się łatwo pozyskać ponownie — to jest różnica między "mam pełny plan awaryjny" a "mam plan awaryjny, który w razie prawdziwej awarii odda mi pustą bazę z ładnym zielonym komunikatem".
+
+**Poprawka:** podnieść próg liczby tabel do rzeczywistej, znanej wartości oczekiwanej w schemacie (nie "≥1", tylko konkretna liczba), dodać weryfikację integralności spisu treści dumpu (`pg_restore -l` — sprawdzenie, że w archiwum faktycznie są wszystkie sekcje z danymi, a nie tylko sekcja struktury), oraz dodać asercję na realną liczbę wierszy w reprezentatywnej, dużej tabeli — nie samą jej obecność, tylko potwierdzenie, że ma sensowną ilość danych powyżej ustalonego progu.
+
+### Luka nr 2: cicha bramka
+
+Drugi problem był bardziej organizacyjny niż techniczny: porażka testu restore-smoke była widoczna wyłącznie przez ręczne sprawdzenie stanu usług systemowych (np. `systemctl --failed`) — a nikt regularnie tego nie sprawdza z własnej inicjatywy. Test może faktycznie wykryć zepsuty backup, ale jeśli informacja o tym nie dotrze aktywnie do człowieka, cała wartość automatyzacji się rozmywa.
+
+**Poprawka:** dopiąć tani, prosty alert — webhook, e-mail, wiadomość na czacie zespołowym — wyzwalany automatycznie przy porażce testu. Czerwony wynik ma generować powiadomienie, a nie czekać biernie, aż ktoś przypadkiem zajrzy do logów.
+
+### Luka nr 3: zmiana roli w trakcie restore łamie prawa własności rozszerzenia
+
+Trzeci, najbardziej podchwytliwy przypadek: `pg_restore` wywołany z flagą zmieniającą rolę (`--role=appuser`) wykonuje w tle odpowiednik `SET ROLE appuser` przed odtwarzaniem obiektów. Jeśli `appuser` to zwykły użytkownik aplikacji, a nie superuser, a baza korzysta z rozszerzenia takiego jak TimescaleDB, to odtwarzanie realnych danych czasowych wymaga tworzenia tzw. chunków w wewnętrznym schemacie rozszerzenia — a to prawo ma wyłącznie właściciel rozszerzenia, zwykle superuser.
+
+Efekt: restore kończy się błędem typu "permission denied for schema..." albo "must be owner of extension" — ale **tylko wtedy, gdy w dumpie faktycznie jest coś do odtworzenia**. Na pustej albo bardzo małej testowej bazie, bez żadnych chunków do utworzenia, dokładnie ten sam restore przechodzi bez żadnego błędu, bo nie ma nic, czego brakujące uprawnienie mogłoby dotyczyć. Test wygląda na zielony — dopóki nie odpali się go na prawdziwym, dużym dumpie produkcyjnym, gdzie danych (a więc i chunków do utworzenia) jest już naprawdę dużo.
+
+**Poprawka:** odtwarzać jako superuser, bez przełączania roli, zachowując ownership obiektów dokładnie taki, jaki był zapisany w dumpie. I — co ważniejsze — nie ograniczać testów restore wyłącznie do okrojonych albo pustych próbek. Realny test musi choć raz przejść na dumpie o rozmiarze i strukturze zbliżonej do produkcyjnej, bo dopiero tam ujawniają się błędy związane z uprawnieniami do obiektów specyficznych dla rozszerzeń.
+
+### Wniosek z tej pułapki
+
+Sam fakt posiadania restore-smoke testu nie wystarczy — trzeba też zadać sobie pytanie, **co dokładnie ten test sprawdza, a czego nie sprawdza, i na jakich danych go w ogóle uruchamiasz**. Test weryfikujący wyłącznie strukturę (schemat, liczbę tabel) na pustej albo małej próbce może dać fałszywe poczucie bezpieczeństwa: zielony status, który nie oznacza tego, co myślisz, że oznacza.
+
+Praktyczna zasada na wynos, w trzech punktach:
+1. Asercje w teście przywracania powinny sprawdzać **dane, nie tylko strukturę** — konkretną liczbę wierszy w kluczowych tabelach, a nie samą ich obecność.
+2. Test trzeba choć raz przepuścić na **realnym, dużym dumpie**, nie tylko na okrojonej próbce — niektóre błędy (jak uprawnienia do rozszerzeń) ujawniają się wyłącznie wtedy, gdy jest co odtwarzać.
+3. Wynik testu musi trafiać do kogoś **aktywnie**, nie tylko czekać biernie w logach.
+
 ## Podsumowanie
 
 Restore-smoke to najprostsza możliwa forma testu przywracania: nie sprawdza spójności każdego rekordu, tylko odpowiada na jedno pytanie — *czy ten backup w ogóle da się odtworzyć do działającej bazy?* To pytanie brzmi banalnie, dopóki nie zdarzy się, że odpowiedź brzmi "nie" — a wtedy najlepiej, żeby dowiedzieć się o tym w spokojny dzień, a nie w środku prawdziwej awarii.
