@@ -4,7 +4,7 @@ description: "A model that wants to wrap up the session after a handful of merge
 category: "AI / LLM"
 tags: ["llm", "claude", "agents", "context-window", "model-behavior", "prompting", "lang:en-US"]
 date: 2026-07-11
-draft: true
+draft: false
 ---
 
 # Why Does an LLM "Feel Tired" After 2-3 PRs? It's Not Counting What You Think
@@ -21,7 +21,7 @@ The honest answer is less technical than it sounds, and more interesting: **the 
 
 **It doesn't count tokens.** It can't tally up how many tokens have passed through the conversation. It might estimate, but that's a guess, not a readout from an internal register.
 
-**It doesn't treat PR count as a threshold.** There is no rule baked in that says "3 PRs = stop." If you go looking for that instruction in a CLAUDE.md file or a system prompt, you generally won't find it — because it typically isn't there.
+**It doesn't treat PR count as a threshold.** There is no rule baked in that says "3 PRs = stop." If you go looking for that instruction in a AGENTS.md file or a system prompt, you generally won't find it — because it typically isn't there.
 
 ## So what is "it's getting heavy" actually based on?
 
