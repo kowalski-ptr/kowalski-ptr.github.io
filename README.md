@@ -62,24 +62,24 @@ draft: false                # true = ukryta
 
 ## Wdrożenie na GitHub Pages
 
-To jest **strona użytkownika** → repo musi nazywać się `kowalski-ptr.github.io`.
+To jest **strona użytkownika** → repo musi nazywać się `user-name.github.io`.
 
-1. **Utworzenie repo** `kowalski-ptr.github.io` i wypchięcie kodu:
+1. **Utworzenie repo** `user-name.github.io` i wypchięcie kodu:
    ```bash
    git init && git add . && git commit -m "init knowbase"
    git branch -M main
-   git remote add origin git@github.com:kowalski-ptr/kowalski-ptr.github.io.git
+   git remote add origin git@github.com:user-name/user-name.github.io.git
    git push -u origin main
    ```
 2. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
 3. **Settings → Secrets and variables → Actions:**
-   - *Variables* → `SITE_URL` = `https://kowalski-ptr.github.io`
+   - *Variables* → `SITE_URL` = `https://user-name.github.io`
    - *Secrets* (dla panelu online) → `PUBLIC_TINA_CLIENT_ID`, `TINA_TOKEN`
 4. Push na `main` → workflow `.github/workflows/deploy.yml` zbuduje i opublikuje.
 
-> Nalezy tez zmienic `site` w `astro.config.mjs` (lub ustaw `SITE_URL`) na swój adres.
+> Nalezy tez zmienic `site` w `astro.config.mjs` (lub ustawic `SITE_URL`) na swój adres.
 > Strony produktowe komercyjne nalezy trzymac w osobnych repo:
-> `https://kowalski-ptr.github.io/<repo>/` — to repo ich nie blokuje.
+> `https://user-name.github.io/<repo>/` — to repo ich nie blokuje.
 
 ---
 
@@ -89,10 +89,10 @@ To jest **strona użytkownika** → repo musi nazywać się `kowalski-ptr.github
 2. Skopiowac **Client ID** i wygenerowac **Token** (read-only).
 3. Lokalnie: skopiuj `.env.example` → `.env` i wklej wartości.
 4. W repo: dodanie ich jako *Secrets* (krok 3 wyżej).
-5. Po deployu panel działa pod `https://kowalski-ptr.github.io/admin` z każdego
+5. Po deployu panel działa pod `https://user-name.github.io/admin` z każdego
    urządzenia; zapis = commit do repo.
 
-Bez Tina Cloud wszystko działa lokalnie (tryb local) — tracisz tylko edycję online.
+Bez Tina Cloud wszystko działa lokalnie (tryb local) — tracona wtedy jest tylko edycję online.
 
 ---
 
