@@ -4,7 +4,7 @@ description: "A side-by-side look at three Gemini model tiers running the same m
 category: "AI / LLM"
 tags: ["gemini", "llm", "multi-agent", "model-comparison", "evaluation", "benchmarking", "lang:en"]
 date: 2026-07-28
-draft: true
+draft: false
 ---
 
 # Gemini Pro vs. Flash vs. Flash-Lite in a Multi-Agent Pipeline: What the Numbers Actually Show
