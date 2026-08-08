@@ -4,7 +4,7 @@ description: "A wiki-style explainer on systemd's per-user manager, why user tim
 category: "Infra"
 tags: ["linux", "systemd", "systemd-user", "loginctl", "timers", "sysadmin", "lang:en"]
 date: 2026-07-30
-draft: true
+draft: false
 ---
 
 # What Is systemd Linger, and Why Your User Timers Stop Working After Logout
