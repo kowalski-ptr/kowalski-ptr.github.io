@@ -3,8 +3,8 @@ title: "Does Prompt Cache Survive /clear? Yes — But Not for the Reason You'd G
 description: "A breakdown of what actually gets cached in an agentic coding session, why /clear doesn't throw it away, and why a hand-written handoff file beats /compact for starting a new session cheaply."
 category: "AI / LLM"
 tags: ["llm", "claude", "prompt-caching", "context-window", "agents", "workflow", "lang:en"]
-date: 2026-08-05
-draft: true
+date: 2026-09-03
+draft: false
 ---
 
 # Does Prompt Cache Survive /clear? Yes — But Not for the Reason You'd Guess
