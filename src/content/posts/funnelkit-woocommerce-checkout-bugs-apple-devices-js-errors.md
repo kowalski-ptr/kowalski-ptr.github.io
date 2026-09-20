@@ -4,7 +4,7 @@ description: "A field report from debugging a production WooCommerce checkout bu
 category: "Infra"
 tags: ["wordpress", "woocommerce", "funnelkit", "elementor", "checkout", "javascript", "css", "debugging", "lang:en"]
 date: 2026-09-11
-draft: true
+draft: false
 ---
 
 # Two Real Bugs in a FunnelKit + WooCommerce Checkout: A Missing Payment Button on Apple Devices, and JS Syntax Errors from wpautop
