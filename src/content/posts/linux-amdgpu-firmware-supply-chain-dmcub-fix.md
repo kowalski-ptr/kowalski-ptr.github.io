@@ -4,7 +4,7 @@ description: "A broken AMD GPU firmware blob killed USB-C display output after a
 category: "Infra"
 tags: ["linux", "firmware", "amdgpu", "fedora", "kernel", "dracut", "debugging", "lang:en"]
 date: 2026-09-16
-draft: true
+draft: false
 ---
 
 # Why Fedora Won't Just Patch a Broken Firmware File (and How to Fix It Yourself When It Ships Broken)
